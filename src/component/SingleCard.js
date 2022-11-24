@@ -7,12 +7,13 @@ export default function SingleCard({ card, handleChoice, flipped, disabled }) {
       handleChoice(card);
     }
   };
+
   return (
     <div className="card">
-      <div className={flipped ? "flipped" : ""}>
-        <img className="front" src={card.src} alt="card front" />
+      <div className={`card-inner ${flipped ? "flipped" : ""}`}>
+        <img className="back" src={card.src} alt="card back" />
         <img
-          className="back"
+          className="front"
           src="/img/cover.png"
           alt="card back"
           onClick={handleClick}

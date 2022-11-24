@@ -1,7 +1,17 @@
 .card {
-  position: relative;
+  background-color: transparent;
+  perspective: 1000px;
+  width: 100%;
+  height: 200px;
 }
 
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
 .card img {
   width: 100%;
   display: block;
@@ -9,20 +19,26 @@
   border-radius: 6px;
 }
 
-.card .front {
-  transform: rotateY(90deg);
-  transition: all ease-in 0.2s;
+.front,
+.back {
   position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
 }
-.flipped .front {
-  transform: rotateY(0deg);
-  transition-delay: 0.2s;
+
+.card .flipped {
+  transform: rotateY(180deg);
 }
-.card .back {
-  transition: all ease-in 0.2s;
-  transition-delay: 0.2s;
+.front {
+  background-color: #bbb;
+  color: black;
 }
-.flipped .back {
-  transform: rotateY(90deg);
-  transition-delay: 0.2s;
+
+/* Style the back side */
+.back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
 }
